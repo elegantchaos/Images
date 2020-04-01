@@ -3,5 +3,6 @@ import XCTest
 import ImagesTests
 
 var tests = [XCTestCaseEntry]()
-tests += ImagesTests.allTests()
+tests += ImagesTests.__allTests()
+
 XCTMain(tests)

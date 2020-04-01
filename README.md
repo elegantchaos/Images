@@ -1,3 +1,3 @@
 # Images
 
-A description of this package.
+Miscellaneous Swift image-related extensions and utilities.
