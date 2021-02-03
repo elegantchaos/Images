@@ -11,7 +11,7 @@ import ThreadExtensions
 
 let imageCacheChannel = Channel("com.elegantchaos.imageCache")
 
-public class GenericImageFactory<Factory: ImageFactory> {
+public class GenericImageCache<Factory: ImageFactory> {
     let workQueue: DispatchQueue
     let callbackQueue: DispatchQueue
     let cacheURL: URL
@@ -32,16 +32,25 @@ public class GenericImageFactory<Factory: ImageFactory> {
         GenericAsyncImage<Factory>(withURL: url, default: defaultName, inCache: self)
     }
 
+    public func cachedImage(for url: URL) -> Factory.ImageClass? {
+        let localURL = self.localURL(for: url)
+        return load(cachedURL: localURL)
+    }
+    
     public func image(for url: URL, callback: @escaping ImageCallback) {
-        workQueue.async {
-            do {
-                let localURL = self.localURL(for: url)
-                if let image = self.load(cachedURL: localURL) ?? self.load(remoteURL: url, toLocalURL: localURL) {
-                    self.callbackQueue.async {
-                        callback(image)
+        let localURL = self.localURL(for: url)
+        if let image = load(cachedURL: localURL) {
+            callback(image)
+        } else {
+            workQueue.async {
+                do {
+                    if let image = self.load(remoteURL: url, toLocalURL: localURL) {
+                        self.callbackQueue.async {
+                            callback(image)
+                        }
+                    } else {
+                        print("failed to load image \(url)")
                     }
-                } else {
-                    print("failed to load image \(url)")
                 }
             }
         }

@@ -12,7 +12,7 @@ import UIKit
 public typealias Image = UIImage
 public typealias AsyncImage = GenericAsyncImage<UIImageFactory>
 public typealias ImageCache = UIImageCache
-public typealias UIImageCache = GenericImageFactory<UIImageFactory>
+public typealias UIImageCache = GenericImageCache<UIImageFactory>
 
 public class UIImageFactory: ImageFactory {
     public typealias ImageClass = UIImage

@@ -9,7 +9,7 @@ import AppKit
 
 public typealias Image = NSImage
 public typealias ImageCache = NSImageCache
-public typealias NSImageCache = GenericImageFactory<NSImageFactory>
+public typealias NSImageCache = GenericImageCache<NSImageFactory>
 public typealias AsyncImage = GenericAsyncImage<NSImageFactory>
 
 public class NSImageFactory: ImageFactory {

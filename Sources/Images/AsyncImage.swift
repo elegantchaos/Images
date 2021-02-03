@@ -16,9 +16,16 @@ import ThreadExtensions
 public class GenericAsyncImage<Factory>: ObservableObject where Factory: ImageFactory {
     @Published public var image: Factory.ImageClass
 
-    public init(withURL url: URL?, default defaultImage: Factory.ImageClass = Factory.emptyImage(), inCache cache: GenericImageFactory<Factory>) {
-        self.image = defaultImage
-        if let url = url {
+    public init(withURL url: URL?, default defaultImage: Factory.ImageClass = Factory.emptyImage(), inCache cache: GenericImageCache<Factory>) {
+        guard let url = url else {
+            self.image = defaultImage
+            return
+        }
+        
+        if let image = cache.cachedImage(for: url) {
+            self.image = image
+        } else {
+            self.image = defaultImage
             cache.image(for: url) { [weak self] image in
                 onMainQueue {
                     self?.image = image
@@ -27,15 +34,8 @@ public class GenericAsyncImage<Factory>: ObservableObject where Factory: ImageFa
         }
     }
 
-    public init(withURL url: URL?, default defaultName: String, inCache cache: GenericImageFactory<Factory>) {
-        self.image = Factory.image(systemName: defaultName) ?? Factory.emptyImage()
-        if let url = url {
-            cache.image(for: url) { [weak self] image in
-                onMainQueue {
-                    self?.image = image
-                }
-            }
-        }
+    public convenience init(withURL url: URL?, default defaultName: String, inCache cache: GenericImageCache<Factory>) {
+        self.init(withURL: url, default: Factory.image(systemName: defaultName) ?? Factory.emptyImage(), inCache: cache)
     }
 
 }
