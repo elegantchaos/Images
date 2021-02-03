@@ -10,11 +10,12 @@ let package = Package(
             targets: ["Images"]),
     ],
     dependencies: [
+        .package(url: "https://github.com/elegantchaos/ThreadExtensions.git", from: "1.0.0")
     ],
     targets: [
         .target(
             name: "Images",
-            dependencies: []),
+            dependencies: ["ThreadExtensions"]),
         .testTarget(
             name: "ImagesTests",
             dependencies: ["Images"]),

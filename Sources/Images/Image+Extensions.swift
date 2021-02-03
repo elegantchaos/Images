@@ -3,20 +3,6 @@
 //  All code (c) 2020 - present day, Elegant Chaos Limited.
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-#if canImport(UIKit)
-
-import UIKit
-
-public typealias Image = UIImage
-
-#elseif canImport(AppKit)
-
-import AppKit
-
-public typealias Image = NSImage
-
-#endif
-
 #if canImport(UIKit) || canImport(AppKit)
 
 public extension Image {
