@@ -20,6 +20,9 @@ public class NSImageFactory: ImageFactory {
     public static func image(named name: String) -> NSImage? {
         return NSImage(named: name)
     }
+    public static func image(systemName name: String) -> NSImage? {
+        return NSImage(named: name)
+    }
     public static func emptyImage() -> NSImage {
         return NSImage()
     }

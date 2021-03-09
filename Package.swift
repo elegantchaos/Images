@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "Images",
     platforms: [
-        .macOS(.v10_13), .iOS(.v13)
+        .macOS(.v10_15), .iOS(.v13)
     ],
     products: [
         .library(
@@ -13,12 +13,13 @@ let package = Package(
             targets: ["Images"]),
     ],
     dependencies: [
+        .package(url: "https://github.com/elegantchaos/Logger.git", from: "1.0.0"),
         .package(url: "https://github.com/elegantchaos/ThreadExtensions.git", from: "1.0.0")
     ],
     targets: [
         .target(
             name: "Images",
-            dependencies: ["ThreadExtensions"]),
+            dependencies: ["Logger", "ThreadExtensions"]),
         .testTarget(
             name: "ImagesTests",
             dependencies: ["Images"]),
