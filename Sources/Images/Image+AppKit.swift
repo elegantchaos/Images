@@ -8,9 +8,9 @@
 import AppKit
 
 public typealias Image = NSImage
-public typealias ImageCache = NSImageCache
-public typealias NSImageCache = GenericImageCache<NSImageFactory>
-public typealias AsyncImage = GenericAsyncImage<NSImageFactory>
+@available(macOS 10.15, *) public typealias ImageCache = NSImageCache
+@available(macOS 10.15, *) public typealias NSImageCache = GenericImageCache<NSImageFactory>
+@available(macOS 10.15, *) public typealias AsyncImage = GenericAsyncImage<NSImageFactory>
 
 public class NSImageFactory: ImageFactory {
     public typealias ImageClass = NSImage
