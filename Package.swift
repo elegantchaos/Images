@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "Images",
     platforms: [
-        .macOS(.v10_13), .iOS(.v13), .tvOS(.v13)
+        .macOS(.v10_13), .iOS(.v12), .tvOS(.v12)
     ],
     products: [
         .library(
