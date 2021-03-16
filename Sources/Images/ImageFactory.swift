@@ -11,6 +11,6 @@ public protocol ImageFactory {
     associatedtype ImageClass
     static func image(from data: Data) -> ImageClass?
     static func image(named: String) -> ImageClass?
-    @available(iOS 13.0, *) static func image(systemName: String) -> ImageClass?
+    @available(iOS 13.0, tvOS 13.0, *) static func image(systemName: String) -> ImageClass?
     static func emptyImage() -> ImageClass
 }

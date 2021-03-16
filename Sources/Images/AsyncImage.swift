@@ -13,7 +13,7 @@ import ThreadExtensions
 /// The value of the image property is always updated on the main queue, so it's
 /// safe to use from UI code.
 
-@available(macOS 10.15, iOS 13.0, *) public class GenericAsyncImage<Factory>: ObservableObject where Factory: ImageFactory {
+@available(macOS 10.15, iOS 13.0, tvOS 13.0, *) public class GenericAsyncImage<Factory>: ObservableObject where Factory: ImageFactory {
     @Published public var image: Factory.ImageClass
 
     public init(withURL url: URL?, default defaultImage: Factory.ImageClass = Factory.emptyImage(), inCache cache: GenericImageCache<Factory>) {

@@ -11,7 +11,7 @@ import ThreadExtensions
 
 let imageCacheChannel = Channel("com.elegantchaos.imageCache")
 
-@available(macOS 10.15, iOS 13.0, *) public class GenericImageCache<Factory: ImageFactory> {
+@available(macOS 10.15, iOS 13.0, tvOS 13.0, *) public class GenericImageCache<Factory: ImageFactory> {
     let workQueue: DispatchQueue
     let callbackQueue: DispatchQueue
     let cacheURL: URL

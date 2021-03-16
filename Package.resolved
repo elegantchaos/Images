@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Logger",
+        "repositoryURL": "https://github.com/elegantchaos/Logger.git",
+        "state": {
+          "branch": null,
+          "revision": "8ceabf0985b5255f7be42e023a3f63a7779a9145",
+          "version": "1.6.0"
+        }
+      },
+      {
+        "package": "ThreadExtensions",
+        "repositoryURL": "https://github.com/elegantchaos/ThreadExtensions.git",
+        "state": {
+          "branch": null,
+          "revision": "53e17a23bae8af73bd03be966e39b3b3ffa78421",
+          "version": "1.0.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
