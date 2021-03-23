@@ -3,6 +3,8 @@
 //  All code (c) 2021 - present day, Elegant Chaos Limited.
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
+#if canImport(Combine)
+
 import Combine
 import Foundation
 import ThreadExtensions
@@ -39,3 +41,5 @@ import ThreadExtensions
     }
 
 }
+
+#endif

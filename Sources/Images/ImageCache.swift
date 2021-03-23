@@ -3,6 +3,8 @@
 //  All code (c) 2018 - present day, Elegant Chaos Limited.
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
+#if canImport(CryptoKit)
+
 import Foundation
 import Logger
 import CryptoKit
@@ -94,3 +96,5 @@ let imageCacheChannel = Channel("com.elegantchaos.imageCache")
         return cachedImageURL
     }
 }
+
+#endif
